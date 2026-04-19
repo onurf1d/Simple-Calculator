@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.onur.simplecalculator.ui.CalculatorController">
+   <children>
+      <Button fx:id="button1" layoutX="30.0" layoutY="310.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="1" />
+      <Button fx:id="button2" layoutX="105.0" layoutY="310.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="2" />
+      <Button fx:id="button3" layoutX="180.0" layoutY="310.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="3" />
+      <Button fx:id="button4" layoutX="30.0" layoutY="250.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="4" />
+      <Button fx:id="button5" layoutX="105.0" layoutY="250.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="5" />
+      <Button fx:id="button6" layoutX="180.0" layoutY="250.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="6" />
+      <Button fx:id="button7" layoutX="30.0" layoutY="190.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="7" />
+      <Button fx:id="button8" layoutX="105.0" layoutY="190.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="8" />
+      <Button fx:id="button9" layoutX="180.0" layoutY="190.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="9" />
+
+      <Button fx:id="pointButton" layoutX="180.0" layoutY="370.0" mnemonicParsing="false" onAction="#clickedPointButton" styleClass="point" text="." />
+      <Button fx:id="equalsButon" layoutX="255.0" layoutY="370.0" mnemonicParsing="false" onAction="#clickedEqualsButton" styleClass="equals" text="=" />
+      <Button fx:id="addButton" layoutX="255.0" layoutY="310.0" mnemonicParsing="false" onAction="#clickedOperationButton" styleClass="operator" text="+" />
+      <Button fx:id="subButton" layoutX="255.0" layoutY="250.0" mnemonicParsing="false" onAction="#clickedOperationButton" styleClass="operator" text="-" />
+      <Button fx:id="mulButton" layoutX="255.0" layoutY="190.0" mnemonicParsing="false" onAction="#clickedOperationButton" styleClass="operator" text="x" />
+      <Button fx:id="divButton" layoutX="255.0" layoutY="130.0" mnemonicParsing="false" onAction="#clickedOperationButton" styleClass="operator" text="/" />
+      <Button fx:id="cButton" layoutX="30.0" layoutY="130.0" mnemonicParsing="false" onAction="#clickedClearButton" styleClass="clearButton" text="C" />
+
+      <Button fx:id="button0" layoutX="105.0" layoutY="370.0" mnemonicParsing="false" onAction="#clickedNumberButton" styleClass="number" text="0" />
+      <TextField fx:id="operationText" layoutX="14.0" layoutY="20.0" prefHeight="52.0" prefWidth="269.0" />
+      <Button fx:id="percentButton" layoutX="180.0" layoutY="130.0" mnemonicParsing="false" onAction="#clickedPercentButton" styleClass="operator" text="\\%" />
+      <Button fx:id="eraseButton" layoutX="105.0" layoutY="130.0" mnemonicParsing="false" onAction="#clickedEraseButton" styleClass="eraseButton" text="E" />
+   </children>
+</AnchorPane>
