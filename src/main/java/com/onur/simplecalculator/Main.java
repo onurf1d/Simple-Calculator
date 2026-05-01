@@ -28,7 +28,7 @@ public class Main extends Application{
 //            primaryStage.setMinWidth(100);
 //            primaryStage.setMinHeight(100);
             primaryStage.setResizable(false);
-            primaryStage.setWidth(350);  // İdeal bir genişlik
+            primaryStage.setWidth(350);
             primaryStage.setHeight(480);
 
             primaryStage.show();
