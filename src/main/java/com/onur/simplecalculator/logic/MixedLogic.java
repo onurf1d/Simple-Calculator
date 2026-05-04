@@ -1,4 +1,4 @@
-package com.onur.simplecalculator.service;
+package com.onur.simplecalculator.logic;
 
 import java.util.Stack;
 import com.onur.simplecalculator.model.*;

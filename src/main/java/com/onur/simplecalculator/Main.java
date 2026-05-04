@@ -1,7 +1,5 @@
 package com.onur.simplecalculator;
 
-import com.onur.simplecalculator.model.*;
-import com.onur.simplecalculator.service.MixedLogic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +13,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) {
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/onur/simplecalculator/ui/Scene1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/onur/simplecalculator/controller/Scene1.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
@@ -28,13 +26,13 @@ public class Main extends Application{
 //            primaryStage.setMinWidth(100);
 //            primaryStage.setMinHeight(100);
             primaryStage.setResizable(false);
-            primaryStage.setWidth(350);  // İdeal bir genişlik
+            primaryStage.setWidth(350);
             primaryStage.setHeight(480);
 
             primaryStage.show();
         }catch(Exception e) {
             e.printStackTrace();
-            System.out.println("hata!");
+            System.out.println("Error!");
         }
     }
 

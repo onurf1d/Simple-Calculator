@@ -1,15 +1,13 @@
-package com.onur.simplecalculator.ui;
+package com.onur.simplecalculator.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
-import com.onur.simplecalculator.model.*;
-import com.onur.simplecalculator.service.MixedLogic;
-import javafx.scene.paint.Color;
+import com.onur.simplecalculator.logic.MixedLogic;
 
-public class CalculatorController {
+public class MainController {
 
     @FXML
     private TextField operationText;
@@ -36,8 +34,15 @@ public class CalculatorController {
     void clickedPointButton(ActionEvent event) {
         Button button = (Button) event.getSource();
 
-        String point = button.getText();
-        operationText.appendText(point);
+        if(operationText.getLength() == 0) {
+            String point = "0.";
+            operationText.appendText(point);
+        }
+        else {
+            String point = button.getText();
+            operationText.appendText(point);
+        }
+
     }
 
     @FXML
