@@ -23,8 +23,7 @@ public class Main extends Application{
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/view/calculator.jpg")));
             String css = this.getClass().getResource("/view/app.css").toExternalForm();
             scene.getStylesheets().add(css);
-//            primaryStage.setMinWidth(100);
-//            primaryStage.setMinHeight(100);
+
             primaryStage.setResizable(false);
             primaryStage.setWidth(350);
             primaryStage.setHeight(480);

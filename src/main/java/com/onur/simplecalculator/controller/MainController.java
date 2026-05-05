@@ -9,6 +9,8 @@ import com.onur.simplecalculator.logic.MixedLogic;
 
 public class MainController {
 
+
+
     @FXML
     private TextField operationText;
 
@@ -24,25 +26,39 @@ public class MainController {
     void clickedOperationButton(ActionEvent event) {
         Button button = (Button) event.getSource();
 
-        button.getStyleClass().add("operator");
+        String currentText = operationText.getText();
+
+        if(currentText == null || currentText.trim().isEmpty()) {
+            return;
+        }
 
         String operator = " " + button.getText() + " ";
-        operationText.appendText(operator);
+
+        if(!isOperator()) {
+            button.getStyleClass().add("operator");
+            operationText.appendText(operator);
+        }
+        else {
+            button.getStyleClass().add("operator");
+
+            operationText.deleteText(operationText.getLength() - 2, operationText.getLength());
+            operationText.appendText(button.getText() + " ");
+        }
     }
+
 
     @FXML
     void clickedPointButton(ActionEvent event) {
         Button button = (Button) event.getSource();
 
-        if(operationText.getLength() == 0) {
+        if(operationText.getLength() == 0 || isOperator()) {
             String point = "0.";
             operationText.appendText(point);
         }
-        else {
+        else if(!isDuplicatePoint()) {
             String point = button.getText();
             operationText.appendText(point);
         }
-
     }
 
     @FXML
@@ -63,17 +79,40 @@ public class MainController {
     }
 
     @FXML
-    void clickedPercentButton(ActionEvent event) {
-        Button button = (Button) event.getSource();
-
-        String percentage = " % ";
-        operationText.appendText(percentage);
-    }
-
-    @FXML
     void clickedEraseButton(ActionEvent event) {
         Button button = (Button) event.getSource();
 
-        operationText.deleteText(operationText.getLength() - 1, operationText.getLength());
+        if(!operationText.getText().isEmpty()) {
+            operationText.deleteText(operationText.getLength() - 1, operationText.getLength());
+        }
+    }
+
+    private boolean isOperator() {
+        String currentText = operationText.getText();
+        String trimmedText = currentText.trim();
+        String lastMeaningfulChar = trimmedText.substring(trimmedText.length() - 1);
+
+        String[] operatorArray = {"+", "-", "x", "/", "%"};
+
+        boolean isOperator = false;
+
+        for(String s: operatorArray) {          //boşluk dışındaki son karakterin operatör olup olmadığını kontrol ediyor
+            if (lastMeaningfulChar.equals(s)) {
+                return true;
+            }
+        }
+        return isOperator;
+    }
+
+    private boolean isDuplicatePoint() {
+        String currentText = operationText.getText();
+        String[] parts = currentText.split(" ");
+
+        String lastOperand = parts[parts.length - 1];
+
+        if(lastOperand.contains(".")) {
+            return true;
+        }
+        return false;
     }
 }
