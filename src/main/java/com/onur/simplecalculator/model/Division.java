@@ -1,5 +1,7 @@
 package com.onur.simplecalculator.model;
 
+import java.math.BigDecimal;
+
 public class Division extends Function{
 
     public Division() {
@@ -7,8 +9,8 @@ public class Division extends Function{
     }
 
     @Override
-    public double calculate(double... numbers) {
+    public BigDecimal calculate(BigDecimal firstNumber, BigDecimal secondNumber) {
 
-        return numbers[0] / numbers[1];
+        return firstNumber.divide(secondNumber);
     }
 }

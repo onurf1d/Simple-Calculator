@@ -1,6 +1,7 @@
 package com.onur.simplecalculator.model;
 
 import java.util.Objects;
+import java.math.BigDecimal;
 
 public abstract class Function {
 
@@ -16,7 +17,7 @@ public abstract class Function {
         this.precedence = precedence;
     }
 
-    public abstract double calculate(double... numbers);
+    public abstract BigDecimal calculate(BigDecimal firstNumber, BigDecimal secondNumber);
 
     public String getName() {
         return name;

@@ -1,13 +1,15 @@
 package com.onur.simplecalculator.model;
 
+import java.math.BigDecimal;
+
 public class Subtraction extends Function{
 
     public Subtraction() {
         super("Subtraction", "-", false, 1);
     }
 
-    public double calculate(double... numbers) {
+    public BigDecimal calculate(BigDecimal firstNumber, BigDecimal secondNumber) {
 
-        return numbers[0] - numbers[1];
+        return firstNumber.subtract(secondNumber);
     }
 }

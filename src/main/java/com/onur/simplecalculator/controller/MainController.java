@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
 import com.onur.simplecalculator.logic.MixedLogic;
+import java.math.BigDecimal;
 
 public class MainController {
 
@@ -73,7 +74,7 @@ public class MainController {
         Button button = (Button) event.getSource();
 
         MixedLogic ml = new MixedLogic();
-        double result = ml.calculate(operationText.getText());
+        BigDecimal result = ml.calculate(operationText.getText());
         operationText.clear();
         operationText.setText(String.valueOf(result));
     }

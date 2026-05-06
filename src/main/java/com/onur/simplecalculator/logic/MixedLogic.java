@@ -5,11 +5,11 @@ import com.onur.simplecalculator.model.*;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-
+import java.math.BigDecimal;
 
 public class MixedLogic {
 
-    private Stack<Double> operandStack = new Stack<>();
+    private Stack<BigDecimal> operandStack = new Stack<>();
 
     private Stack<Function> operatorStack = new Stack<>();
 
@@ -23,7 +23,7 @@ public class MixedLogic {
         functionMap.put("%", new Percentage());
     }
 
-    public double calculate(String text) {
+    public BigDecimal calculate(String text) {
         operandStack.clear();
         operatorStack.clear();
 
@@ -33,7 +33,7 @@ public class MixedLogic {
             String currentToken = st.nextToken();
 
             if (currentToken.matches("-?\\d+(\\.\\d+)?")) {
-                operandStack.push(Double.parseDouble(currentToken));
+                operandStack.push(new BigDecimal(currentToken));
             }
 
             else if(functionMap.containsKey(currentToken)) {
@@ -58,14 +58,14 @@ public class MixedLogic {
             }
         }
 //        return operandStack.pop();
-        return operandStack.isEmpty() ? 0 : operandStack.pop();
+        return operandStack.isEmpty() ? BigDecimal.ZERO : operandStack.pop();
     }
 
     private void executeTopOperator() {
         Function function = operatorStack.pop();
-        double secondElement = operandStack.pop();
-        double firstElement = operandStack.pop();
-        double result = function.calculate(firstElement, secondElement);
+        BigDecimal secondElement = operandStack.pop();
+        BigDecimal firstElement = operandStack.pop();
+        BigDecimal result = function.calculate(firstElement, secondElement);
         operandStack.push(result);
     }
 
