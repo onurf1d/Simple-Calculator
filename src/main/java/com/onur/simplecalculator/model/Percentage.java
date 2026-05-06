@@ -9,6 +9,7 @@ public class Percentage extends Function{
     }
 
     public BigDecimal calculate(BigDecimal firstNumber, BigDecimal secondNumber) {
+
         return firstNumber.multiply(secondNumber).divide(BigDecimal.valueOf(100));
     }
 }

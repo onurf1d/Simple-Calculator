@@ -42,14 +42,10 @@ public class MixedLogic {
                 while(!operatorStack.empty() && operatorStack.peek().getPrecedence() >= relatedFunction.getPrecedence()) {
                     executeTopOperator();
                 }
-
                 operatorStack.push(relatedFunction);
             }
-
         }
-//        while (!operatorStack.empty()) {
-//            executeTopOperator();
-//        }
+
         while (!operatorStack.empty()) {
             if (operandStack.size() >= 2) {
                 executeTopOperator();
@@ -57,7 +53,7 @@ public class MixedLogic {
                 break;
             }
         }
-//        return operandStack.pop();
+
         return operandStack.isEmpty() ? BigDecimal.ZERO : operandStack.pop();
     }
 
@@ -68,5 +64,4 @@ public class MixedLogic {
         BigDecimal result = function.calculate(firstElement, secondElement);
         operandStack.push(result);
     }
-
 }

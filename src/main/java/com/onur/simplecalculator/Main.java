@@ -29,6 +29,7 @@ public class Main extends Application{
             primaryStage.setHeight(480);
 
             primaryStage.show();
+
         }catch(Exception e) {
             e.printStackTrace();
             System.out.println("Error!");

@@ -11,6 +11,6 @@ public class Division extends Function{
     @Override
     public BigDecimal calculate(BigDecimal firstNumber, BigDecimal secondNumber) {
 
-        return firstNumber.divide(secondNumber);
+            return firstNumber.divide(secondNumber);
     }
 }

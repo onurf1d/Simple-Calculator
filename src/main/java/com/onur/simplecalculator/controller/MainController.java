@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 public class MainController {
 
-
+    private final String UNDEFINED_MESSAGE = "Undefined";
 
     @FXML
     private TextField operationText;
@@ -18,8 +18,12 @@ public class MainController {
     @FXML
     void clickedNumberButton(ActionEvent event) {
         Button button = (Button) event.getSource();
+        String number = button.getText();
 
-        String number =  button.getText();
+        if(operationText.getText().equals(UNDEFINED_MESSAGE)) {
+            operationText.clear();
+        }
+
         operationText.appendText(number);
     }
 
@@ -47,7 +51,6 @@ public class MainController {
         }
     }
 
-
     @FXML
     void clickedPointButton(ActionEvent event) {
         Button button = (Button) event.getSource();
@@ -72,19 +75,30 @@ public class MainController {
     @FXML
     void clickedEqualsButton(ActionEvent event) {
         Button button = (Button) event.getSource();
-
-        MixedLogic ml = new MixedLogic();
-        BigDecimal result = ml.calculate(operationText.getText());
-        operationText.clear();
-        operationText.setText(String.valueOf(result));
+        try {
+            MixedLogic ml = new MixedLogic();
+            BigDecimal result = ml.calculate(operationText.getText());
+            operationText.clear();
+            operationText.setText(String.valueOf(result));
+        } catch (ArithmeticException e) {
+            operationText.setText(UNDEFINED_MESSAGE);
+        }
     }
 
     @FXML
     void clickedEraseButton(ActionEvent event) {
         Button button = (Button) event.getSource();
 
-        if(!operationText.getText().isEmpty()) {
-            operationText.deleteText(operationText.getLength() - 1, operationText.getLength());
+        if(operationText.getText().endsWith(" ")) {
+            operationText.deleteText(operationText.getLength() - 3, operationText.getLength());
+        }
+        else if(operationText.getText().equals(UNDEFINED_MESSAGE)) {
+            operationText.clear();
+        }
+        else {
+            if(!operationText.getText().isEmpty()) {
+                operationText.deleteText(operationText.getLength() - 1, operationText.getLength());
+            }
         }
     }
 
