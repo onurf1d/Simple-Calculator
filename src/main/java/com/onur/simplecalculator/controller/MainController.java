@@ -33,7 +33,7 @@ public class MainController {
 
         String currentText = operationText.getText();
 
-        if(currentText == null || currentText.trim().isEmpty()) {
+        if(currentText == null || currentText.trim().isEmpty() || currentText.equals(UNDEFINED_MESSAGE)) {
             return;
         }
 
