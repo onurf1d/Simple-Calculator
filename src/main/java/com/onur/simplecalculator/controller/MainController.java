@@ -1,11 +1,11 @@
 package com.onur.simplecalculator.controller;
 
+import com.onur.simplecalculator.logic.MixedLogic;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
-
-import com.onur.simplecalculator.logic.MixedLogic;
 import java.math.BigDecimal;
 
 public class MainController {

@@ -83,3 +83,9 @@
     -fx-scale-x: 0.95;
     -fx-scale-y: 0.95;
 }
+
+.tooltip {
+    -fx-font-size: 12px;
+    -fx-padding: 3px 7px;
+    -fx-background-radius: 4px;
+}

@@ -1,7 +1,8 @@
 package com.onur.simplecalculator.logic;
 
-import java.util.Stack;
 import com.onur.simplecalculator.model.*;
+
+import java.util.Stack;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.StringTokenizer;
